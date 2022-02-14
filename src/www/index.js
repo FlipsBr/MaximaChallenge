@@ -18,7 +18,7 @@ ReactDOM.render(
     <Provider store={store}>
       <Routes>
         <Route path="/" element={<App />} />
-        {loggedIn ? <Redirect to="/frontpage" /> : <App />}
+
         <Route exact path="/frontpage" element={<FrontPage />} />
         <Route exact path="/balance" element={<Balance />} />
         <Route exact path="/create-user" element={<CreateUser />} />

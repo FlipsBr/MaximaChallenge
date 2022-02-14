@@ -34,7 +34,7 @@ routes.post("/user/create", async function(req, res, next) {
 routes.post("/movimentacao/create", async function(req, res, next) {
   try {
     const response = await movimentacaoController(req, res);
-    console.log(response);
+    console.log("response", response);
     res.send(response);
   } catch (error) {
     res.send(error);

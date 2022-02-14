@@ -2,13 +2,24 @@ import React, { useState } from "react";
 import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+import axios from "axios";
 import { Link } from "react-router-dom";
 
 const defaultValues = {
-  name: "",
+  nome: "",
   login: "",
   password: "",
 };
+
+async function createLogin(login, senha, nome) {
+  const data = { login, senha, nome };
+  const BaseURL = "http://localhost:4000";
+  {
+    const fetchData = await axios.post(`${BaseURL}/user/create`, data);
+    console.log(fetchData);
+    return fetchData;
+  }
+}
 
 const CreateUser = () => {
   const [formValues, setFormValues] = useState(defaultValues);
@@ -20,9 +31,14 @@ const CreateUser = () => {
     });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(formValues);
+    const createdUser = await createLogin(
+      formValues.login,
+      formValues.senha,
+      formValues.nome
+    );
+    console.log("createdUser", createdUser);
   };
 
   return (
@@ -49,10 +65,10 @@ const CreateUser = () => {
           <Grid item>
             <TextField
               id="name-input"
-              name="name"
-              label="Name"
+              name="nome"
+              label="Nome"
               type="text"
-              value={formValues.name}
+              value={formValues.nome}
               onChange={handleInputChange}
             />
           </Grid>

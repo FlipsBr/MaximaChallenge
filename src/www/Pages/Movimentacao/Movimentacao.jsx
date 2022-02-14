@@ -2,13 +2,24 @@ import React, { useState } from "react";
 import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+import axios from "axios";
 import { Link } from "react-router-dom";
 
 const defaultValues = {
   login_origem: "",
   login_destino: "",
-  valor: "",
+  valor_origem: "",
 };
+
+async function novaMovimentacao(login_origem, login_destino, valor_origem) {
+  const data = { login_origem, login_destino, valor_origem };
+  const BaseURL = "http://localhost:4000";
+  {
+    const fetchData = await axios.post(`${BaseURL}/movimentacao/create`, data);
+    console.log(fetchData);
+    return fetchData;
+  }
+}
 
 const CreateMovimentacao = () => {
   const [formValues, setFormValues] = useState(defaultValues);
@@ -20,9 +31,16 @@ const CreateMovimentacao = () => {
     });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     console.log(formValues);
+    const movimentacao = await novaMovimentacao(
+      formValues.login_origem,
+      formValues.login_destino,
+      formValues.valor_origem
+    );
+
+    console.log(movimentacao);
   };
 
   return (
@@ -71,11 +89,11 @@ const CreateMovimentacao = () => {
           <Grid item>
             <TextField
               id="valor"
-              name="valor"
+              name="valor_origem"
               label="Valor"
-              type="Number"
+              type="text"
               required
-              value={formValues.valor}
+              value={formValues.valor_origem}
               onChange={handleInputChange}
             />
           </Grid>

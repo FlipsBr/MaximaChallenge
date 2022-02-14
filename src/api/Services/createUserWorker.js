@@ -8,7 +8,6 @@ async function createUserWorker(req, res) {
       await db.Saldo.create({ login, saldo: 100 })
     );
 
-    console.log("no worker", createdUser);
     return createdUser;
   } catch (error) {
     console.log(error);
