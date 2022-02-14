@@ -16,13 +16,11 @@ ReactDOM.render(
     <Provider store={store}>
       <Routes>
         <Route path="/" element={<App />} />
-        <IndexRoute />
         <Route path="/frontpage" element={<FrontPage />} />
         <Route path="/balance" element={<Balance />} />
         <Route path="/create-user" element={<CreateUser />} />
-        <Route path="/movimentacao" element={<CreateMovimentacao />} />
+        <Route path="/create-movimentacao" element={<CreateMovimentacao />} />
       </Routes>
-      <App />
     </Provider>
   </BrowserRouter>,
   document.getElementById("root")

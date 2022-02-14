@@ -5,15 +5,30 @@ import Button from "@material-ui/core/Button";
 import setLoginInfo from "../../Store/Setters/loginSetter";
 import setLogin from "../../Store/loginSlice";
 import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
 
 const defaultValues = {
   login: "",
   senha: "",
 };
-
+async function createLogin(login, password) {
+  console.log(login, password);
+  const BaseURL = "http://localhost:4000";
+  {
+    axios
+      .post(`${BaseURL}/login`, {
+        login,
+        password,
+        headers: { "Content-Type": "application/json" },
+      })
+      .then((res) => {
+        return res;
+      });
+  }
+}
 const Login = () => {
-  //const login = useSelector((state) => state.login);
   const dispatch = useDispatch();
+  //const login = useSelector((state) => state.login);
   const [formValues, setFormValues] = useState(defaultValues);
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -23,18 +38,20 @@ const Login = () => {
     });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(formValues);
-    setLoginInfo(formValues.login, formValues.senha).then((res) => {
-      console.log(res);
-      dispatch(setLogin(formValues.login));
-    });
+    console.log(formValues.login);
+    const loggedIn = await createLogin(formValues.login, formValues.senha);
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <Grid container alignItems="center" justify="center" direction="column">
+      <Grid
+        container
+        alignItems="center"
+        justifyContent="center"
+        direction="column"
+      >
         <Grid item>
           <TextField
             id="login-input"

@@ -26,7 +26,12 @@ const CreateMovimentacao = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <Grid container alignItems="center" justify="center" direction="column">
+      <Grid
+        container
+        alignItems="center"
+        justifyConten="center"
+        direction="column"
+      >
         <Grid item>
           <TextField
             id="login_origem"
