@@ -4,12 +4,10 @@ export const loginSlice = createSlice({
   name: "login",
   initialState: {
     login: "",
-    saldo: "",
   },
   reducers: {
     setLogin: (state, action) => {
-      console.log(action.payload);
-      state.value = action.payload;
+      return action.payload;
     },
   },
 });

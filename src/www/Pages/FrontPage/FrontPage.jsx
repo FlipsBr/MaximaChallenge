@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Box, Typography, Button } from "@material-ui/core";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import "./FrontPage.css";
 
 function FrontPage() {
@@ -8,6 +9,18 @@ function FrontPage() {
   const saldo = 0.0;
   return (
     <>
+      {" "}
+      <nav
+        style={{
+          borderBottom: "solid 1px",
+          paddingBottom: "1rem",
+        }}
+      >
+        <Link to="/frontpage">FrontPage</Link> |{" "}
+        <Link to="/balance">Balance</Link> |{" "}
+        <Link to="/create-user">Create User</Link> |{" "}
+        <Link to="/create-movimentacao">Criar Movimentação</Link> |{" "}
+      </nav>
       <Box className="paper">
         <Typography variant="h4">
           Olá {login}, seu saldo é de R${saldo}

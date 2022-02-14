@@ -4,6 +4,29 @@ import "./App.css";
 
 import Login from "./Pages/Login/Login";
 
+//const [loggedIn, setLoggedIn] = useState(false);
+
+function App() {
+  return (
+    <div>
+      <nav
+        style={{
+          borderBottom: "solid 1px",
+          paddingBottom: "1rem",
+        }}
+      >
+        <Link to="/frontpage">FrontPage</Link> |{" "}
+        <Link to="/balance">Balance</Link> |{" "}
+        <Link to="/create-user">Create User</Link> |{" "}
+        <Link to="/create-movimentacao">Criar Movimentação</Link> |{" "}
+      </nav>
+      <Login />
+    </div>
+  );
+}
+export default App;
+
+/*
 class App extends Component {
   render() {
     return (
@@ -25,6 +48,8 @@ class App extends Component {
   }
 }
 export default App;
+
+*/
 
 /*
 return (

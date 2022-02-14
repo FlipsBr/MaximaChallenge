@@ -34,9 +34,10 @@ async function loginWorker2() {
 
 async function loginWorker(req) {
   const { login, senha } = req.body;
+  console.log(login, senha);
 
   const exists = await db.Usuario.findOne({
-    where: { [Op.and]: [{ login }, { senha }] },
+    where: { [Op.and]: [{ login: login }, { senha: senha }] },
   });
   if (exists) {
     return exists.dataValues;

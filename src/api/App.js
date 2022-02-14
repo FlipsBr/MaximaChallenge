@@ -15,7 +15,8 @@ class App {
 
   middlewares() {
     this.server.use(bodyParser.urlencoded({ extended: false })); //para forms
-    this.server.use(express.json());
+    this.server.use(bodyParser.json()); //para json
+    //this.server.use(express.json());
     this.server.use(cors());
   }
 

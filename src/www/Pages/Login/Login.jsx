@@ -2,34 +2,34 @@ import React, { useState } from "react";
 import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+import axios from "axios";
+
+/*
 import setLoginInfo from "../../Store/Setters/loginSetter";
 import setLogin from "../../Store/loginSlice";
 import { useDispatch, useSelector } from "react-redux";
-import axios from "axios";
+import { useEffect } from "react";
+*/
 
 const defaultValues = {
   login: "",
   senha: "",
 };
-async function createLogin(login, password) {
-  console.log(login, password);
+
+async function createLogin(login, senha) {
+  const data = { login, senha };
   const BaseURL = "http://localhost:4000";
   {
-    axios
-      .post(`${BaseURL}/login`, {
-        login,
-        password,
-        headers: { "Content-Type": "application/json" },
-      })
-      .then((res) => {
-        return res;
-      });
+    const fetchData = await axios.post(`${BaseURL}/login`, data);
+    console.log(fetchData);
+    return fetchData;
   }
 }
-const Login = () => {
-  const dispatch = useDispatch();
+/* ---------- Inicio do Elemento --------- */
+const Login = (props) => {
   //const login = useSelector((state) => state.login);
   const [formValues, setFormValues] = useState(defaultValues);
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormValues({
@@ -38,10 +38,9 @@ const Login = () => {
     });
   };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async function(event) {
     event.preventDefault();
-    console.log(formValues.login);
-    const loggedIn = await createLogin(formValues.login, formValues.senha);
+    const isLogged = await createLogin(formValues.login, formValues.senha);
   };
 
   return (

@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
-import { BrowserRouter, Routes, Route, IndexRoute } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import store from "./Store/store.js";
 import { Provider } from "react-redux";
 import * as serviceWorker from "./serviceWorker";
@@ -11,15 +11,22 @@ import Balance from "./Pages/Balance/Balance.jsx";
 import CreateUser from "./Pages/CreateUser/CreateUser";
 import CreateMovimentacao from "./Pages/Movimentacao/Movimentacao";
 
+const loggedIn = true;
+
 ReactDOM.render(
   <BrowserRouter>
     <Provider store={store}>
       <Routes>
         <Route path="/" element={<App />} />
-        <Route path="/frontpage" element={<FrontPage />} />
-        <Route path="/balance" element={<Balance />} />
-        <Route path="/create-user" element={<CreateUser />} />
-        <Route path="/create-movimentacao" element={<CreateMovimentacao />} />
+        {loggedIn ? <Redirect to="/frontpage" /> : <App />}
+        <Route exact path="/frontpage" element={<FrontPage />} />
+        <Route exact path="/balance" element={<Balance />} />
+        <Route exact path="/create-user" element={<CreateUser />} />
+        <Route
+          exact
+          path="/create-movimentacao"
+          element={<CreateMovimentacao />}
+        />
       </Routes>
     </Provider>
   </BrowserRouter>,

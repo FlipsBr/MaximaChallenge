@@ -32,7 +32,6 @@ routes.post("/user/create", async function(req, res, next) {
 });
 
 routes.post("/movimentacao/create", async function(req, res, next) {
-  console.log("na rota...");
   try {
     const response = await movimentacaoController(req, res);
     console.log(response);
