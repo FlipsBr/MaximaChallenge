@@ -1,3 +1,11 @@
+Importante - a aplicação foi criada por cima de uma Template.
+Portanto, deve ser clonada.
+
+de git clone, depois, npm install, npm start.
+
+
+
+
 Rotas da Api:
 método post: "localhost:4000/login" -> Checa por usuário e senha válidos no DB
 método post: "localhost:4000/balance" -> envia o login do usuário e tem como resposta o saldo do usuário
