@@ -7,9 +7,13 @@ de git clone, depois, npm install, npm start.
 
 
 Rotas da Api:
+</br>
 método post: "localhost:4000/login" -> Checa por usuário e senha válidos no DB
+</br>
 método post: "localhost:4000/balance" -> envia o login do usuário e tem como resposta o saldo do usuário
+</br>
 método post: "localhost:4000/user/create" -> Cria um usuário novo no banco de dados.
+</br>
 método post: "localhost:4000/movimentacao/create" -> Cria uma nova transferencia entre usuários e atualiza as tabelas do banco de dados de saldo e movimentação.
 </br>
 ------------------ Back-end ------------------
