@@ -1,64 +1,25 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Rotas da Api:
+método post: "localhost:4000/login" -> Checa por usuário e senha válidos no DB
+método post: "localhost:4000/balance" -> envia o login do usuário e tem como resposta o saldo do usuário
+método post: "localhost:4000/user/create" -> Cria um usuário novo no banco de dados.
+método post: "localhost:4000/movimentacao/create" -> Cria uma nova transferencia entre usuários e atualiza as tabelas do banco de dados de saldo e movimentação.
 
-## Available Scripts
+------------------ Back-end ------------------
+Ao dar o comando npm start, a aplicação vai criar o próprio banco em um docker, com os respectivos .env
+A aplicação vai subir o banco automaticamente quando for inicializada e vai gerar o próprio .env de moto automático.
 
-In the project directory, you can run:
+as configurações do DB estão na pasta /api/config.js
 
-### `npm start`
+As respectivas tabelas do banco são populadas no início da aplicação.
+Não existe um usuário padrão criado, será necessário criar um utilizando a rota.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Minha maior dificuldade foi com relação as fazer as indicações de chaves estrangeiras na própria criação automatizada da tabela, como é algo que só fiz didaticamente na faculdade, e nunca profissionalmente, acabei gastanto muito tempo tentando e tive de desistir.
+------------------ Front-End ------------------
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+Front end foi feito em React 17.0 utilizando Material-UI.
+Com relação ao front-end, me faltou tempo para conseguir fazer as rotas das maneiras corretas, iria utilizar react-router.
+Para Segurar os estados da aplicação do front-end, estava utilizando React-Redux, mas me faltou tempo da mesma maneira.
+De qualquer modo, vou seguir construindo a aplicação até que ela esteja pronta.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject-www`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-This is a thin wrapper around create-react-app's `eject` command. There is currently not an `eject` option for create-node-app.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+De qualquer modo, estou enviando junto também um arquivo do postman que já tem as rotas pré configuradas para teste.
+Não consegui fazer o tratamento de erro devido para que a aplicação não quebrasse ao inserir uma chama
