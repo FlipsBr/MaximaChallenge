@@ -1,0 +1,181 @@
+{
+	"info": {
+		"_postman_id": "3288c31f-d050-4b65-bbf4-375e2f4c74e8",
+		"name": "Maxima",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "(post) http://localhost:4000/balance",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "login",
+							"value": "senha3",
+							"type": "text"
+						},
+						{
+							"key": "senha",
+							"value": "login",
+							"type": "text"
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/balance",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"balance"
+					],
+					"query": [
+						{
+							"key": "login",
+							"value": "senha",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "(post) http://localhost:4000/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "login",
+							"value": "senha3",
+							"type": "text"
+						},
+						{
+							"key": "senha",
+							"value": "login",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:4000/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "(post) http://localhost:4000/user/create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "login",
+							"value": "login5",
+							"type": "text"
+						},
+						{
+							"key": "senha",
+							"value": "senha",
+							"type": "text"
+						},
+						{
+							"key": "nome",
+							"value": "nome",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:4000/user/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"user",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "(post) http://localhost:4000/movimentacao/create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "login_origem",
+							"value": "login",
+							"type": "text"
+						},
+						{
+							"key": "login_destino",
+							"value": "login2",
+							"type": "text"
+						},
+						{
+							"key": "valor_origem",
+							"value": "5",
+							"type": "text"
+						},
+						{
+							"key": "UsuarioLogin",
+							"value": "login",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:4000/movimentacao/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"movimentacao",
+						"create"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
