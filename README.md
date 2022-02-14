@@ -14,6 +14,8 @@ As respectivas tabelas do banco são populadas no início da aplicação.
 Não existe um usuário padrão criado, será necessário criar um utilizando a rota.
 
 Minha maior dificuldade foi com relação as fazer as indicações de chaves estrangeiras na própria criação automatizada da tabela, como é algo que só fiz didaticamente na faculdade, e nunca profissionalmente, acabei gastanto muito tempo tentando e tive de desistir.
+
+Cheguei também a começar a fazer a parte de autenticação usando JWT para manter o login ativo, junto do bcrype para salvar a senha no DB com hash, mas acabei parando no meio do caminho por questão de tempo.
 ------------------ Front-End ------------------
 
 Front end foi feito em React 17.0 utilizando Material-UI.
