@@ -2,14 +2,29 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
+import { BrowserRouter, Routes, Route, IndexRoute } from "react-router-dom";
 import store from "./Store/store.js";
 import { Provider } from "react-redux";
 import * as serviceWorker from "./serviceWorker";
+import FrontPage from "./Pages/FrontPage/FrontPage";
+import Balance from "./Pages/Balance/Balance.jsx";
+import CreateUser from "./Pages/CreateUser/CreateUser";
+import CreateMovimentacao from "./Pages/Movimentacao/Movimentacao";
 
 ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
+  <BrowserRouter>
+    <Provider store={store}>
+      <Routes>
+        <Route path="/" element={<App />} />
+        <IndexRoute />
+        <Route path="/frontpage" element={<FrontPage />} />
+        <Route path="/balance" element={<Balance />} />
+        <Route path="/create-user" element={<CreateUser />} />
+        <Route path="/movimentacao" element={<CreateMovimentacao />} />
+      </Routes>
+      <App />
+    </Provider>
+  </BrowserRouter>,
   document.getElementById("root")
 );
 

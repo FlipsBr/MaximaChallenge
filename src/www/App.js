@@ -1,21 +1,25 @@
 import React, { Component } from "react";
-
+import { Link } from "react-router-dom";
 import "./App.css";
-import FrontPage from "./Pages/FrontPage/FrontPage.jsx";
-import Balance from "./Pages/Balance/Balance.jsx";
-import CreateUser from "./Pages/CreateUser/CreateUser";
+
 import Login from "./Pages/Login/Login";
-import CreateMovimentacao from "./Pages/Movimentacao/Movimentacao";
 
 class App extends Component {
   render() {
     return (
       <div>
+        <nav
+          style={{
+            borderBottom: "solid 1px",
+            paddingBottom: "1rem",
+          }}
+        >
+          <Link to="/frontpage">FrontPage</Link> |{" "}
+          <Link to="/balance">Balance</Link> |{" "}
+          <Link to="/create-user">Create User</Link> |{" "}
+          <Link to="/create-movimentacao">Criar Movimentação</Link> |{" "}
+        </nav>
         <Login />
-        <FrontPage />
-        <Balance />
-        <CreateUser />
-        <CreateMovimentacao />
       </div>
     );
   }
